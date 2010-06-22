@@ -12,8 +12,8 @@ class NextMeeting
     if current_time.day < 8 && current_time.wday == 3
       return current_date #"Today"
     else # check for the next wednesday
-      return next_wed = next_wednesday(current_date)
-      #return "Next Wednesday (#{next_wed.strftime('%m/%d/%Y')})" if next_wed.day < 8
+      next_wed = next_wednesday(current_date)
+      return next_wed if next_wed.day < 8
     end
     # must be next month...  let's be nice and give the date.
     the_next_first = ( current_date - current_date.day + 1 ) >> 1
