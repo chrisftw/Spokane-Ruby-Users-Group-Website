@@ -1,1 +1,31 @@
-<p>Next Meeting: <%= NextMeeting.date %></p>
+<%- current_date = Time.now.to_date -%>
+<%- meeting_date = NextMeeting.date -%>
+<%- days = (meeting_date - current_date).to_i -%>
+<p>
+  <h3>Next Meeting</h3>
+    We meet at Conley's Place in Spokane Valley.<br />
+    date: 
+    <%- if days > 7 -%>
+      <%= meeting_date.strftime("%A %B %d, %Y") %> -- just <%= days %> days
+    <%- elsif days > 1 -%>
+      Next Wednesday <%= meeting_date.strftime("%B %d, %Y") %> -- just <%= days %> days
+    <%- elsif days == 1 -%>
+      Tomorrow!
+    <%- else -%>
+      Today!
+    <%- end -%><br/>
+    time: 6<span style="text-decoration: blink">:</span>30pm
+</p>
+<p>
+  <h3>Get connected</h3>
+  Subscribe to the mailing list for up to date announcements.  <a href="http://lists.gonzaga.edu/mailman/listinfo/ruby-l">Mailing list sign up.</a>. <a href="http://www.twitter.com/spokanerb">Follow us on Twitter too</a>.<br />
+  Feel free to email the list or tweet Chris Reister (<a href="http://www.twitter.com/cowboyonrails">@cowboyonrails</a>) for details.
+</p>
+<p>
+  <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;hl=en&amp;geocode=&amp;q=12622+East+Sprague+Avenue,+Spokane,+WA&amp;sll=47.689717,-117.226868&amp;sspn=0.1003,0.193634&amp;ie=UTF8&amp;ll=47.675329,-117.226181&amp;spn=0.09741,0.193634&amp;z=13&amp;g=12622+East+Sprague+Avenue,+Spokane,+WA&amp;output=embed&amp;s=AARTsJoAKrU5CmcPJzsNgGkFo8ukhOiiSA"></iframe><br /><small><a href="http://maps.google.com/maps?f=q&amp;hl=en&amp;geocode=&amp;q=12622+East+Sprague+Avenue,+Spokane,+WA&amp;sll=47.689717,-117.226868&amp;sspn=0.1003,0.193634&amp;ie=UTF8&amp;ll=47.675329,-117.226181&amp;spn=0.09741,0.193634&amp;z=13&amp;g=12622+East+Sprague+Avenue,+Spokane,+WA&amp;source=embed" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+</p>
+<p>
+ We are appreciative of our O'Reilly User Group sponsorship. Return the favor by buying books from these links:
+
+<script src="http://s7.smrtlnks.com/users/GenerateBlueLinks.php?feedUrl=http%3A%2F%2Fwww.oreillynet.com%2Fpub%2Ffeed%2F29%3Ftopic%3D43&amp;title=New%20Ruby%20Books&amp;skin=darkGrey&amp;width=675&amp;numItems=10&amp;type=grid&amp;display=both&amp;auto=yes&amp;topLogo=oreilly.jpg&amp;logoLink=http://www.oreilly.com&amp;feedTitleLink=viewall&amp;columns=5&amp;xsl=oreilly.xsl&amp;blueSiteId=oreilly" type="text/javascript"></script>
+</p>

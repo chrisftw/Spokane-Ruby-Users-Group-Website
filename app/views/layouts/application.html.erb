@@ -5,6 +5,7 @@
   <title>SpokaneRubyUsersGroup</title>
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" %>
+  <script src="http://widgets.twimg.com/j/2/widget.js"></script>
   <%= javascript_include_tag 'rails' %>
   <%= csrf_meta_tag %>
 </head>
@@ -17,11 +18,8 @@
     </div>
     <div class="nav">
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="examples.html">Examples</a></li>
-        <li><a href="#">Solutions</a></li>
-        <li><a href="#">Support</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/pickle_jar">Pickle Jar</a></li>
       </ul>
     </div>
     <div class="clear"></div>
@@ -42,6 +40,39 @@
             <li><a href="http://www.rubyonrails.org" title="Ruby on Rails">Ruby on Rails</a></li>
             <li><a href="http://www.ramaze.net" title="Ramaze">Ramaze</a></li>
           </ul>
+          <h4>Twitter Activity</h4>
+          <p>
+          <script>
+          new TWTR.Widget({
+            version: 2,
+            type: 'profile',
+            rpp: 6,
+            interval: 6000,
+            width: 250,
+            height: 300,
+            theme: {
+              shell: {
+                background: '#ba1e1e',
+                color: '#000000'
+              },
+              tweets: {
+                background: '#000000',
+                color: '#ffffff',
+                links: '#4aed05'
+              }
+            },
+            features: {
+              scrollbar: true,
+              loop: false,
+              live: true,
+              hashtags: true,
+              timestamp: true,
+              avatars: false,
+              behavior: 'all'
+            }
+          }).render().setUser('spokanerb').start();
+          </script>
+          </p>
 <!-->
           <h4>Search</h4>
           <form action="#" method="get" class="searchform">

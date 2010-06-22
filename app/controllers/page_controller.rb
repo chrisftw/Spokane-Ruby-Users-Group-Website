@@ -8,4 +8,5 @@ class PageController < ApplicationController
       render :controller => "page", :action => 'missing_page'
     end
   end
+  
 end
