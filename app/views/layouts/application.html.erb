@@ -18,6 +18,12 @@
     </div>
     <div class="nav">
       <ul>
+        <%# Commented out because it is not working properly. Routes also removed.
+        <% if current_user % >
+        <li><a href="/users/edit"><%= current_user.name % ></a></li>
+        <% else % >
+        <li><a href="/login">Login</a></li>
+        <% end %>
         <li><a href="/">Home</a></li>
         <li><a href="/bonus_meeting">Bonus Meeting</a></li>
         <li><a href="/pickle_jar">Pickle Jar</a></li>
@@ -29,6 +35,7 @@
     <div class="innerpagewrapper">
       <div class="page">
         <div class="content">
+          <%#= flash if flash %>
           <%= yield %>
         </div>
         <div class="sidebar">

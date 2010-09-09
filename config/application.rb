@@ -8,12 +8,13 @@ Bundler.require(:default, Rails.env) if defined?(Bundler)
 
 module SpokaneRubyUsersGroup
   class Application < Rails::Application
+    
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
     # Add additional load paths for your own custom dirs
-    # config.load_paths += %W( #{config.root}/extras )
+    config.autoload_paths += ["#{config.root}/lib"]
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named
@@ -36,6 +37,10 @@ module SpokaneRubyUsersGroup
     #   g.template_engine :erb
     #   g.test_framework  :test_unit, :fixture => true
     # end
+    
+    config.generators do |g|
+      g.test_framework :rspec
+    end
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
