@@ -1,10 +1,13 @@
-SpokaneRubyUsersGroup::Application.routes.draw do |map|
+SpokaneRubyUsersGroup::Application.routes.draw do
+  devise_for :users
+
   # removed temporarily 
   #resources :users
   #resources :user_sessions
 
   get "page/show"
 
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -55,10 +58,12 @@ SpokaneRubyUsersGroup::Application.routes.draw do |map|
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   root :to => "page#show"
-  # removed temporarily 
-  #match "/login", :to => "user_sessions#new"
-  #match "/logout", :to => "user_sessions#destroy"
-  #match "/register", :to => "users#new"
+  
+  devise_scope :user do
+    get "/login", :to => "devise/sessions#new"
+    get "/logout", :to => "devise/sessions#destroy"
+    get "/register", :to => "devise/registrations#new"
+  end
   
   match ":page", :to => "page#show"
 
